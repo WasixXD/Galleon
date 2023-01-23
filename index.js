@@ -1,22 +1,14 @@
 import Galleon  from "./src/Galleon.js"
+import fs from "node:fs"
+
 
 const ship = new Galleon() 
 const PORT = 3000 || process.env.PORT
 
+const json = JSON.parse(fs.readFileSync("./public/data.json"))
 
-const api_response = [
-    {
-        emoji: "🚢",
-        id: 1,
-        data: "Galleon Emoji"
 
-    },
-    {
-        emoji: "🛳️",
-        id: 2,
-        data: "Front Galleon"
-    }
-]
+ship.source("./public")
 
 
 ship.post("/api", (server) => {
@@ -26,7 +18,15 @@ ship.post("/api", (server) => {
 })
 
 ship.get("/api", (server) => {
-    server.json(api_response)
+    server.json(json)
+})
+
+ship.get("/secret", (server) => {
+    server.redirect("/api")
+})
+
+ship.get("/page", (server) => {
+    server.send("/page.html")
 })
 
 ship.post("/", (server) => {
@@ -34,7 +34,7 @@ ship.post("/", (server) => {
 })
 
 ship.get("/", (server) => {
-    server.sendFile("index.html")
+    server.sendFile("/index.html")
         
 })
 
