@@ -23,7 +23,7 @@ This is a attempt to make a ExpressJS clone without any package (PS: i used one)
 - Work with request and response handler
 - Send different types of data through the web
 
-# Goal 🏆
+# Goals 🏆
 - [ x ] Can setup a server
 - [ x ] Can respond to GET and POST methods
 - [ x ] Send multiple files such as `html`, `jpeg`, `css`, `js`, `json`
