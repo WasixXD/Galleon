@@ -5,11 +5,20 @@ import { lookup } from "mime-types"
 class Client {
     #body = null
     #source = []
+    #params = {}
+    
     constructor(req, res) {
         this.req = req
         this.res = res 
     }
 
+    set params(data) {
+        this.#params = {...this.#params, data}
+    }
+    get params() {
+        return this.#params
+    }
+    
 
     set source(data) {
         this.#source.push(data)

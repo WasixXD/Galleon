@@ -4,6 +4,8 @@ import { existsSync } from "node:fs"
 import { readdir, lstat } from "node:fs/promises";
 import { Buffer } from "node:buffer"
 import { resolve, basename } from "node:path";
+import { URL } from "node:url";
+import { resourceUsage } from "node:process";
 
 
 class Galleon {
@@ -17,8 +19,8 @@ class Galleon {
         this.server = createServer()
         .on("request", async (request, response) => {
         
-            //Handle all types of HTTP methods
-            console.log("\n", request.method, request.url, "from Galleon")
+            //Handle some types of HTTP methods
+
             
             let ship = new Client(request, response)
 
@@ -31,10 +33,19 @@ class Galleon {
                         
                     
                         let haveFather_n_equalURL = (value.father && "/" + basename(value.father) + value.path == request.url)
-                        if(value.path == request.url || haveFather_n_equalURL) {
+                        if(value.path == request.url || haveFather_n_equalURL || !!value.receive) {
                             //if it a .get() it should have a callback
                             if(!!value.callback) {
                                 // se eu tiver sources para seguir -> ent eu quero arquivos a partir desse source
+                                
+                                if(request.url.includes(value.path) && !!value.receive){
+                                    
+                                    //#TODO: chain dynamic routes
+                                    ship.params[value.receive] = request.url.slice(request.url.lastIndexOf('/') + 1, request.url.length)
+                                    
+                                
+                                } 
+
                                 if(this.#source_paths.length > 0) ship.source = this.#source_paths
                                 value.callback(ship)
  
@@ -60,7 +71,7 @@ class Galleon {
                             ship.body = JSON.parse(reader)
                         }
 
-                        console.log(`Received: ${ship.body}`)
+                        
                     
                     
                     })
@@ -82,7 +93,7 @@ class Galleon {
             })
         .on("error", (err) => {
             
-            throw new Error("mai que carai")
+            throw new Error(err)
         })
             
     }
@@ -90,7 +101,24 @@ class Galleon {
 
 
     get(PATH, callback) {
-        this.#get_paths.push({path: PATH, method: "GET", callback})
+        let properties = {path: PATH, method: "GET", callback}
+        if(PATH.includes(":")) {
+            let numberOfParams = PATH.match(/:/g || [])
+            if(numberOfParams.length > 1) {
+                properties.receive = []
+                let occurrencie = PATH.split("/:")
+                for(let i = 1; i < occurrencie.length; i++) {
+                    properties.receive.push(occurrencie[i])
+
+                }
+            } else {
+
+                properties.receive = PATH.slice(PATH.lastIndexOf(":"), PATH.length).replace(":", "")
+            }
+            properties.path = PATH.slice(0, PATH.lastIndexOf(":")).replace(":", "")
+        }
+        this.#get_paths.push(properties)
+        
     }
 
 
@@ -119,6 +147,8 @@ class Galleon {
         
         }
     } 
+
+
 
 
     listen(PORT, log) {

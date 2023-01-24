@@ -21,6 +21,20 @@ ship.get("/api", (server) => {
     server.json(json)
 })
 
+ship.get("/api/:id", (server) => {
+
+    let { id } = server.params
+
+    let jsonWithId 
+    json.forEach(value => {
+        if(value.id == id) jsonWithId = value
+    });
+    server.json(jsonWithId)
+})
+
+
+
+
 ship.get("/secret", (server) => {
     server.redirect("/api")
 })

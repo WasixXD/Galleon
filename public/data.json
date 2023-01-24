@@ -9,5 +9,10 @@
         "emoji": "🛳️",
         "id": 2,
         "data": "Front Galleon"
+    },
+    {
+        "emoji": "💀",
+        "id": 3,
+        "data": "asdf"
     }
 ]
