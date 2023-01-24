@@ -1,14 +1,14 @@
 {
-  "name": "galleon",
+  "name": "galleonjs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A minimal web dev framework",
+  "main": "/src/Galleon.js",
   "type": "module",
   "scripts": {
     "dev": "node --watch index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["web", "framework", "minimal", "simple", "ship", "dev"],
+  "author": "WasixXD <wasilewski2020@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "mime-types": "^2.1.35"

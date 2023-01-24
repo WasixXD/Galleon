@@ -27,8 +27,7 @@ class Galleon {
     
                 if(request.method === "GET") {
                     
-                    //#TODO: Change the get_maps from Array to Map
-
+                    
                     this.#get_paths.forEach((value) => {
                         
                     
