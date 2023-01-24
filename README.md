@@ -1,7 +1,8 @@
 
 <img src="https://github.com/WasixXD/Galleon/blob/master/galleon.png?raw=true" />
 
-A minimal web development framework for NodeJS
+### A minimal web development framework for NodeJS 
+
 ```js
 import Galleon from "galleonjs"
 
