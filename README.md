@@ -38,3 +38,4 @@ Be sure to use Node >= v18.12.1
 > npm i galleonjs@latest
 ```
 
+PS: AHOY!
