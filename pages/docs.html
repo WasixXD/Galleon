@@ -31,6 +31,44 @@
     html {
         scroll-behavior: smooth;
     }
+
+    
+    @font-face {
+        font-family: "Ikaros Sans";
+        src: local("./public/ikaro.otf");
+        src: url("./public/ikaro.otf") format("embedded-prototype"),
+ url("./public/ikaro.otf") format("woff"),
+ url("./public/ikaro.otf") format("truetype"),
+ url("./public/ikaro.otf") format("woff2"),
+ url("./public/ikaro.otf") format("svg");
+    }
+
+    @font-face {
+        font-family: "WildFire";
+        src: local("./public/ikaro.otf");
+            src: url("./public/wildfire.otf") format("embedded-prototype"),
+             url("./public/wildfire.otf") format("woff2"),
+             url("./public/wildfire.otf") format("woff"),
+             url("./public/wildfire.otf") format("truetype"),
+             url("./public/wildfire.otf") format("svg")
+    }
+        .copy {
+            cursor: pointer;
+        }
+        
+
+        .ikaro {
+            font-family: "Ikaros Sans", Arial, Helvetica, sans-serif;
+        
+            
+            
+        }
+
+        .fire {
+            font-family: "WildFire",  Arial, Helvetica, sans-serif;
+            
+           
+        }
         body {
             padding: 0;
             margin: 0;
@@ -42,17 +80,6 @@
         }
         
 
-        .ikaro {
-            font-family: "Ikaros Sans";
-            src: url("/pages/public/ikaro.otf");
-            font-weight: normal;
-        }
-
-
-        .fire {
-            font-family: wildfire;
-            src: url("/pages/public/wildfire.otf");
-        }
 
         
     
