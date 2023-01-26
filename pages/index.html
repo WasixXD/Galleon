@@ -24,6 +24,26 @@
     </script>
 
     <style> 
+
+    @font-face {
+        font-family: "Ikaros Sans";
+        src: url("/public/ikaro.otf");
+        src: url("public/ikaro.otf") format("embedded-prototype"),
+ url("public/ikaro.otf") format("woff"),
+ url("public/ikaro.otf") format("truetype"),
+ url("public/ikaro.otf") format("woff2"),
+ url("public/ikaro.otf") format("svg");
+    }
+
+    @font-face {
+        font-family: "WildFire";
+        src: url("/public/ikaro.otf");
+            src: url("public/wildfire.otf") format("embedded-prototype"),
+             url("public/wildfire.otf") format("woff2"),
+             url("public/wildfire.otf") format("woff"),
+             url("public/wildfire.otf") format("truetype"),
+             url("public/wildfire.otf") format("svg")
+    }
         .copy {
             cursor: pointer;
         }
@@ -31,23 +51,15 @@
 
         .ikaro {
             font-family: "Ikaros Sans", Arial, Helvetica, sans-serif;
-            src: local("./public/ikaro.otf");
-            src: url(https://github.com/WasixXD/Galleon/blob/master/pages/public/ikaro.otf) format("embedded-prototype"),
- url(https://github.com/WasixXD/Galleon/blob/master/pages/public/ikaro.otf) format("woff"),
- url(https://github.com/WasixXD/Galleon/blob/master/pages/public/ikaro.otf) format("truetype"),
- url(https://github.com/WasixXD/Galleon/blob/master/pages/public/ikaro.otf) format("woff2"),
- url(https://github.com/WasixXD/Galleon/blob/master/pages/public/ikaro.otf) format("svg");
+        
+            
             
         }
 
         .fire {
             font-family: "WildFire",  Arial, Helvetica, sans-serif;
-            src: local("./public/ikaro.otf");
-            src: url(https://github.com/WasixXD/Galleon/blob/master/pages/public/wildfire.otf) format("embedded-prototype"),
-             url(https://github.com/WasixXD/Galleon/blob/master/pages/public/wildfire.otf) format("woff2"),
-             url(https://github.com/WasixXD/Galleon/blob/master/pages/public/wildfire.otf) format("woff"),
-             url(https://github.com/WasixXD/Galleon/blob/master/pages/public/wildfire.otf) format("truetype"),
-             url(https://github.com/WasixXD/Galleon/blob/master/pages/public/wildfire.otf) format("svg");
+            
+           
         }
 
         body {
